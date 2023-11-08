@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task-10</title>
+</head>
+<body>
+    <input type="text" id="fn" placeholder="Firstname">
+    <input type="text" id="ln" placeholder="lastname">
+    <input type="date" id="dob" placeholder="DOB">
+    <input type="number" id="bal" placeholder="Balance">
+    <input type="number" id="ac" placeholder="Accnumber">
+    <input type="text" id="sh" placeholder="shareholdername">
+
+
+    <button onclick="Addcustomer()">Addcustomer</button>
+    <div id="displayContainer"> </div>
+    <script>
+
+        function Customers(firstname, lastname, dob, bal, accno, sharenm){
+            this.fname=firstname;
+            this.lname=lastname;
+            this.mydob=dob;
+            this.mybal=bal;
+            this.myacc=accno;
+            this.shareholdernm=sharenm;
+        }
+        function Addcustomer(){  //main function
+            var customerArr=[];
+        console.log("customerArr value",customerArr);
+            let firstname=document.getElementById("fn").value;
+            let lastname=document.getElementById("ln").value;
+            let dob=document.getElementById("dob").value;
+            let bal = document.getElementById("bal").value;
+            let accno = document.getElementById("ac").value;
+            let sharenm = document.getElementById("sh").value;
+
+            let a = new Customers(firstname, lastname, dob, bal, accno, sharenm);
+            //console.log("Text", customerArr);
+            customerArr.push(a);
+            console.log("A value",a);
+            // console.log("customerArr value222",customerArr[0].fname);
+
+        customerArr.forEach(function (item) {  //item.fname is used to access the fname property of each element in the customerArr array
+            document.getElementById("displayContainer").innerHTML += `<p> Firstname : ${item.fname} </p>`;
+            document.getElementById("displayContainer").innerHTML += `<p> Lastname : ${item.lname} </p>`;
+            document.getElementById("displayContainer").innerHTML += `<p> DOB : ${item.mydob} </p> `;
+            document.getElementById("displayContainer").innerHTML += `<p> mybal : ${item.mybal} </p> `;
+            document.getElementById("displayContainer").innerHTML += `<p> accno : ${item.myacc} </p> `; 
+            document.getElementById("displayContainer").innerHTML += `<p> shareholdername : ${item.shareholdernm} </p>`;
+    });
+}
+
+        
+    </script>
+</body>
+</html>
